@@ -136,6 +136,8 @@
         "createMediaFolder": "New media folder",
         "renameItem": "Rename",
         "deleteItem": "Delete",
+        "moveItemUp": "Move up",
+        "moveItemDown": "Move down",
         "uploadMedia": "Upload media",
         "duplicateItem": "Duplicate",
         "revertItem": "Revert changes",
