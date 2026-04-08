@@ -33,14 +33,17 @@ const items = computed(() => {
   }))
 })
 
+const LABEL_KEYS = ['title', 'label', 'name']
+
 function getItemLabel(item: unknown, index: number) {
   const isObject = itemsType.value === 'object'
     && typeof item === 'object'
     && item !== null
 
   if (isObject) {
-    const values = Object.values(item)
-    const firstString = values.find(value => typeof value === 'string')
+    const obj = item as Record<string, unknown>
+    const priorityValue = LABEL_KEYS.map(key => obj[key]).find(value => typeof value === 'string' && value)
+    const firstString = priorityValue ?? Object.values(obj).find(value => typeof value === 'string' && value)
     return `${index + 1}: ${firstString || '—'}`
   }
 
